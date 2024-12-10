@@ -9,13 +9,9 @@ public class Book {
     private String name;
     private static int numberBook = 0;
 
-    public Book() {
-        this.id = ++Book.numberBook;
-    }
-
     public Book(String name) {
-        this();
-        this.name = name;
+        this.id = ++Book.numberBook;
+        setName(name); // Para validar
     }
 
     public int getId() {
@@ -27,7 +23,10 @@ public class Book {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Book name cannot be null or empty.");
+        }
+        this.name = name.trim();
     }
 
     public static List<Book> createBooksList() {

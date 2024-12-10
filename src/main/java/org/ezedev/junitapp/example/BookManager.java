@@ -12,31 +12,44 @@ public class BookManager {
     }
 
     public void addBook(String name) {
-        Book newBook = new Book(name);
+        if (name == null || name.trim().isEmpty()) {
+            System.out.println("Book name cannot be null or empty.");
+            return;
+        }
 
-        // Evitar duplicados
+        Book newBook = new Book(name.trim());
         if (books.contains(newBook)) {
             System.out.println("The book \"" + name + "\" is already in the list.");
             return;
         }
 
-        // Agregar el nuevo libro y ordenar la lista
         books.add(newBook);
-        books.sort(Comparator.comparing(Book::getName, String.CASE_INSENSITIVE_ORDER)); // Mantener orden alfabético
+        books.sort(Comparator.comparing(Book::getName, String.CASE_INSENSITIVE_ORDER)); // Ordenar alfabéticamente
         System.out.println("Book \"" + name + "\" has been added.");
     }
 
     public void addBookAtPosition(String name, int position) {
+        if (name == null || name.trim().isEmpty()) {
+            System.out.println("Book name cannot be null or empty.");
+            return;
+        }
+
         if (position < 0 || position > books.size()) {
             System.out.println("Invalid position. Please provide a valid position.");
             return;
         }
-        books.add(position, new Book(name));
+
+        books.add(position, new Book(name.trim()));
         System.out.println("Book \"" + name + "\" has been added at position " + position + ".");
     }
 
     public void removeBookByTitle(String title) {
-        boolean removed = books.removeIf(book -> book.getName().equalsIgnoreCase(title));
+        if (title == null || title.trim().isEmpty()) {
+            System.out.println("Book title cannot be null or empty.");
+            return;
+        }
+
+        boolean removed = books.removeIf(book -> book.getName().equalsIgnoreCase(title.trim()));
         if (removed) {
             System.out.println("Book \"" + title + "\" has been removed.");
         } else {
@@ -64,6 +77,6 @@ public class BookManager {
     }
 
     public List<Book> getBooks() {
-        return books;
+        return new ArrayList<>(books); // Devuelve una copia para proteger la lista original
     }
 }
