@@ -1,23 +1,23 @@
-# BookManager-N1-E1
+# DNI Letter Calculator
 
 ## 📄 Description
-This Java project is a book management system designed to handle a collection of books in a library. The program allows users to add books, retrieve the full list, get books by position, add books at specific positions, and remove books by title. The system ensures that the list is alphabetically ordered and prevents duplicate entries.
+This Java project calculates the corresponding letter for a Spanish DNI (National Identity Document) based on its numeric part. The program ensures accurate letter calculation using a predefined algorithm and includes robust input validation and error handling for incorrect data. The project is equipped with comprehensive unit tests to validate its functionality.
 
 ### Functionality
 1. **Core Features:**
-   - Add books to the collection while avoiding duplicates.
-   - Retrieve the full list of books, maintaining alphabetical order.
-   - Get a book's title based on its position in the list.
-   - Add a book at a specific position in the collection.
-   - Remove books by their title, ensuring proper list management.
+   - Input a numeric DNI without the letter.
+   - Calculate the corresponding letter based on the official Spanish algorithm.
+   - Display the full DNI with its calculated letter.
+   - Validate user input, rejecting negative or non-numeric values.
+   - Handle invalid inputs gracefully with meaningful error messages.
 
 2. **Robust Design:**
-   - Alphabetical sorting is maintained automatically when books are added.
-   - Custom logic ensures no duplicate titles are added to the collection.
-   - Comprehensive error handling for invalid positions and operations.
+   - Implements the official DNI letter calculation formula.
+   - Includes unit tests using JUnit 5 to ensure correctness for multiple test cases.
+   - Provides a user-friendly interactive console menu for testing functionalities.
 
 3. **Interactive Console:**
-   - A user-friendly menu in the main class for testing all functionalities interactively.
+   - A menu-driven system in the main class to allow users to test the program interactively.
 
 ---
 
@@ -39,4 +39,4 @@ This Java project is a book management system designed to handle a collection of
 ## 🛠️ Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/eze-ms/BookManager-N1-E1
+   git clone https://github.com/your-repository-link.git
